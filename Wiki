@@ -1,0 +1,36 @@
+## FAQ and Common Issues
+This FAQ covers common questions and issues participants might hit per task.
+
+#### Task 1
+- Participants should use the link provided to sign up for an ACS CS trial. If they do not have a Red Hat account, they will need to create one. A valid e-mail address is required for the Red Hat account and Trial.
+
+#### Task 2
+- Participants will follow the instructions in console.redhat.com to deploy the ACS CS Central instance. They may change the region in the drop down menu. No AWS account or entitlement is required for this deployment. 
+- Please allow 12-15 minutes for the ACS instance to provision. 
+
+#### Task 3
+
+- **TASK LENGTH**: This task is quite comprehensive and participants should follow all steps. The challenge is getting to the end and not necessarily trying to make them guess what to do. As this is likely their first experience with ACS and EKS please encourage them to work through the steps sequentially and do not skip anything :)
+- **ENVIRONMENT VARIABLES NOT SET?**: Participants cannot `chmod +x` and run the script as it needs to set shell vars and running it won't set shell vars. So they MUST `source` it.
+- **ISSUES LOGGING INTO CLOUD9**: If participants get asked to login to the AWS console when opening the Cloud9 URL remind them to first login to AWS *via the AWS console button provided by the Jam environment*. That way the Cloud9 URL will use the stored auth from the AWS session.
+- **RUNNING THE ENVIRONMENT SCRIPT (acs-jam-c9-prep.sh)**: Participants **MUST** run this script first. The script configures the environment with key tools, such as helm, kubectl, and more. Additionally, the script creates the deployments needed for ACS to find issues. If things appear to be missing please run `kubectl get pods -n candleco` and you should see four deployments running there. The script is simple, please review if there are issues.
+- **TASK COMPLETION**: This task must be completed or no other tasks will work. Work with attendees to ensure they get it all running. The biggest issues will be around properly subbing out the large tokens into the right place. We advise the copy and paste tokens into a text editor and then also the command to sub into (rather than doing it on the command line). For example, this color-coded text file is an example of how they could manage this:
+
+<img src="SeanRickerd/rhsummit2024/jam-wiki-1.png" width="1000" /> <br />
+
+#### Task 4
+
+- **S3 Bucket naming**: The S3 bucket has a randomised string to ensure it's unique across AWS. If they cannot find it with the CLI just browse to the S3 service in AWS and find it there.
+- **S3 Bucket upload**: Participants can use the CLI to upload t the bucket. If they have trouble, or prefer a UI, using the AWS console is fine. The lambda function will trigger when it sees a file. The naming and content of the file do not matter.
+
+#### Task 5
+
+- **ACS Usage**: For participants who don't know ACS they will likely need to use the clues to find the right steps. The clues should take them through exactly what they need to complete the challenge.
+
+#### Task 6
+
+- Participants should make sure all container images have been added to the watch list as described in the previous task. 
+
+#### Task 7
+
+- **Searching**: When searching for the Cryptominer policy, participants should first search for "Policy", then "Crypto". This should be done in the same search, "Policy" will be the filter the search will use to find "Crypto". The search bar should reflect [Policy] and the search term.
