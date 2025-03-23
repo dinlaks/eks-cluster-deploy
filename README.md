@@ -13,7 +13,7 @@ helm install -n stackrox --create-namespace \
     stackrox-secured-cluster-services rhacs/secured-cluster-services \
     -f <name_of_cluster_init_bundle.yaml> \
     --set clusterName=<name_of_the_secured_cluster> \
-    --set centralEndpoint=<acs.domain.com:443> \
+    --set centralEndpoint=acs.domain.com:443 \
     --set scanner.disable=false \
     --set imagePullSecrets.username=<username> \
     --set imagePullSecrets.password=<password>
