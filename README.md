@@ -17,3 +17,30 @@ helm install -n stackrox --create-namespace \
     --set scanner.disable=false \
     --set imagePullSecrets.username=<username> \
     --set imagePullSecrets.password=<password>
+
+
+## Add EKS cluster as managedcluster to ACM
+To add EKS cluster in ACM, do the following; 
+
+1. Create a secret
+```bash
+oc create secret generic pull-secret -n open-cluster-management --from-file=.dockerconfigjson=<path-to-pull-secret> --type=kubernetes.io/dockerconfigjson
+```
+2. A defined **_multiclusterhub.spec.imagePullSecret_** if you are importing a cluster that was not created by OpenShift Container Platform
+```bash
+oc edit multiclusterhub -n open-cluster-management -o yaml 
+
+spec:
+  availabilityConfig: High
+  enableClusterBackup: false
+  **_imagePullSecret: pull-secret_**
+  ingress: {}
+  overrides:
+    components:
+    - configOverrides: {}
+      enabled: true
+      name: app-lifecycle
+```
+
+3. Import cluster using ACM GUI and generate a command and run against a target eks cluster. 
+
