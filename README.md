@@ -33,7 +33,7 @@ oc edit multiclusterhub -n open-cluster-management -o yaml
 spec:
   availabilityConfig: High
   enableClusterBackup: false
-  **_imagePullSecret: pull-secret_**
+  imagePullSecret: pull-secret
   ingress: {}
   overrides:
     components:
