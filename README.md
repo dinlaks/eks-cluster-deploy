@@ -42,5 +42,21 @@ spec:
       name: app-lifecycle
 ```
 
+**_NOTE_** : If required, please add the pull-secret to multicluster-engine namespace and ensure imagePullSecret is added to multiclusterengine resource. 
+```bash
+oc edit multiclusterengine -o yaml
+
+spec:
+  availabilityConfig: High
+  imagePullSecret: pull-secret
+  overrides:
+    components:
+    - configOverrides: {}
+      enabled: true
+      name: local-cluster
+    - configOverrides: {}
+      enabled: true
+```
+
 3. Import cluster using ACM GUI and generate a command and run against a target eks cluster. 
 
