@@ -42,7 +42,7 @@ spec:
       name: app-lifecycle
 ```
 
-**_NOTE_** : If required, please add the pull-secret to multicluster-engine namespace and ensure imagePullSecret is added to multiclusterengine resource. 
+**_NOTE_** : If required, please add the pull-secret to **_multicluster-engine_** namespace and ensure imagePullSecret is added to multiclusterengine resource. 
 ```bash
 oc edit multiclusterengine -o yaml
 
