@@ -4,6 +4,7 @@
 
 1. Use cloudformation yaml manifest to create a stack for EKS cluster using aws cloud formation service
 2. Once stack is ready, apply the acs-jam-c9-prep-summit.sh script.
+3. Please use AWS Cloud9 console to apply the script and as well using kubetcl commands against EKS cluster
 
 ## Add EKS cluster as secured cluster services in ACS
 To add EKS cluster in ACS, use helm install command to install the secured cluster services 
