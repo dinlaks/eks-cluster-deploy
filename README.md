@@ -19,6 +19,17 @@ helm install -n stackrox --create-namespace \
     --set imagePullSecrets.username=<username> \
     --set imagePullSecrets.password=<password>
 
+Using Cluster Registration Secrets:
+
+helm install -n stackrox --create-namespace \
+    stackrox-secured-cluster-services rhacs/secured-cluster-services \
+    --set-file crs.file=<crs_file_name.yaml> \
+    --set clusterName=<name_of_the_secured_cluster> \
+    --set centralEndpoint=<endpoint_of_central_service> \
+    --set scanner.disable=false \
+    --set imagePullSecrets.username=<username> \
+    --set imagePullSecrets.password=<password>  # red hat account credentials 
+
 
 ## Add EKS cluster as managedcluster to ACM
 To add EKS cluster in ACM, do the following; 
