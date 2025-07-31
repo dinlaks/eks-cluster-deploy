@@ -13,6 +13,7 @@ To add EKS cluster in ACS, use helm install command to install the secured clust
 helm repo add rhacs https://mirror.openshift.com/pub/rhacs/charts/
 
 ### Example: 
+```
 helm install -n stackrox --create-namespace \
     stackrox-secured-cluster-services rhacs/secured-cluster-services \
     -f <name_of_cluster_init_bundle.yaml> \
@@ -21,6 +22,7 @@ helm install -n stackrox --create-namespace \
     --set scanner.disable=false \
     --set imagePullSecrets.username=<username> \
     --set imagePullSecrets.password=<password>
+```
 
 Using Cluster Registration Secrets:
 
