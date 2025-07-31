@@ -14,7 +14,7 @@ Parameters:
   WorkerNodeInstanceType:
     Description: Worker Node cluster instances
     Type: String
-    Default: m5.large
+    Default: m5.4xlarge
   EKSC9InstanceType:
     Description: EKS Cloud9 instance type
     Type: String
