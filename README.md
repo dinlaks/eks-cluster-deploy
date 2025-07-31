@@ -9,6 +9,9 @@
 ## Add EKS cluster as secured cluster services in ACS
 To add EKS cluster in ACS, use helm install command to install the secured cluster services 
 
+### First add RHACS charts Repository 
+helm repo add rhacs https://mirror.openshift.com/pub/rhacs/charts/
+
 ### Example: 
 helm install -n stackrox --create-namespace \
     stackrox-secured-cluster-services rhacs/secured-cluster-services \
